@@ -1,17 +1,8 @@
 ﻿namespace TicTacToe
 {
-    using System.Text.RegularExpressions;
-
     public class Score
     {
         private int _moveCounter;
-
-        private Board _playingBoard;
-
-        public Score()
-        {
-            _playingBoard = new Board();
-        }
 
         public void MakeMove(int space, Player.Piece piece, Board board)
         {
@@ -30,11 +21,21 @@
 
         private bool IsWin(Player.Piece[] boardState)
         {
-            var isWin = false;
+            var hasXWon = HasPieceWon(boardState, Player.Piece.X);
 
-            isWin = HasPieceWon(boardState);
+            if (hasXWon)
+            {
+                return true;
+            }
 
-            return isWin;
+            var hasOWon = HasPieceWon(boardState, Player.Piece.O);
+
+            if (hasOWon)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private static bool HasPieceWon(Player.Piece[] boardState, Player.Piece piecetoCheck)

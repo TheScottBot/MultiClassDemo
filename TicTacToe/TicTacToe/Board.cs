@@ -2,7 +2,12 @@
 {
     public class Board
     {
-        private Player.Piece[] _playingGrid = new Player.Piece[9];
+        private Player.Piece[] _playingGrid;
+
+        public Board()
+        {
+            _playingGrid = new Player.Piece[9];
+        }
 
         public bool IsValidSpace(int space)
         {

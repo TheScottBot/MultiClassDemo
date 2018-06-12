@@ -4,9 +4,9 @@
     {
         public enum Piece
         {
+            Free,
             O,
-            X,
-            Free = 0
+            X
         }
     }
 }
